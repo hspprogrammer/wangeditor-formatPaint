@@ -6,17 +6,7 @@ class FormatPaint {
         // this.iconSvg = '<svg>...</svg>' // 可选
         this.tag = 'button'
         this.isSelect = false;
-        this.formatJson = {
-            bgColor: "rgb(115, 209, 61)",
-            bold: true,
-            color: "rgb(255, 77, 79)",
-            fontFamily: "微软雅黑",
-            fontSize: "24px",
-            italic: true,
-            text: "界面展现用户体验和",
-            through: true,
-            underline: true    
-        }
+        this.formatJson = {}
         this.formatedHtml='';
     }
     getValue(editor) {                           // JS 语法

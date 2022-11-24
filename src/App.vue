@@ -20,7 +20,7 @@
 
 <script>
 import Vue from 'vue'
-import FormatPaintMenuConf,{withSelect} from "./assets/FromatPaint.js";
+import FormatPaintMenuConf,{withSelect} from "./assets/FormatPaint.js";
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue';
 import { Boot } from '@wangeditor/editor';
 Boot.registerMenu(FormatPaintMenuConf)

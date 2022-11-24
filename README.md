@@ -1,31 +1,5 @@
-# default
+# 项目预览地址
+https://hspprogrammer.github.io/wangeditor-formatPaint/
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# wangeditor-formatPaint
-# wangeditor-formatPaint
+# 使用方法
+只要把 /src/assets/FormatPaint.js 文件复制到自己的项目中，按照App.vue文件中注册使用即可。React项目中应该可以用。
