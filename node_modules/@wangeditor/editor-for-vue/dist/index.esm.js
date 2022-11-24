@@ -1,0 +1,16 @@
+import t from"vue";import{createEditor as e,DomEditor as o,createToolbar as r}from"@wangeditor/editor";
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */var n=function(){return n=Object.assign||function(t){for(var e,o=1,r=arguments.length;o<r;o++)for(var n in e=arguments[o])Object.prototype.hasOwnProperty.call(e,n)&&(t[n]=e[n]);return t},n.apply(this,arguments)};function i(t){var e="请使用 '@".concat(t,"' 事件，不要放在 props 中");return e+="\nPlease use '@".concat(t,"' event instead of props")}var a=t.extend({render:function(t){return t("div",{ref:"box"})},name:"Editor",data:function(){return{curValue:"",editor:null}},props:["defaultContent","defaultConfig","mode","defaultHtml","value"],mounted:function(){this.create()},watch:{value:function(t){t===this.curValue||this.setHtml(t)}},methods:{setHtml:function(t){var e=this.editor;null!=e&&e.setHtml(t)},create:function(){var t=this;if(null!=this.$refs.box){var o=this.defaultConfig||{},r=JSON.stringify(Array.isArray(this.defaultContent)?this.defaultContent:[]);e({selector:this.$refs.box,html:this.defaultHtml||this.value||"",config:n(n({},o),{onCreated:function(e){if(t.editor=Object.seal(e),t.$emit("onCreated",e),o.onCreated){var r=i("onCreated");throw new Error(r)}},onChange:function(e){var r=e.getHtml();if(t.curValue=r,t.$emit("input",r),t.$emit("onChange",e),o.onChange){var n=i("onChange");throw new Error(n)}},onDestroyed:function(e){if(t.$emit("onDestroyed",e),o.onDestroyed){var r=i("onDestroyed");throw new Error(r)}},onMaxLength:function(e){if(t.$emit("onMaxLength",e),o.onMaxLength){var r=i("onMaxLength");throw new Error(r)}},onFocus:function(e){if(t.$emit("onFocus",e),o.onFocus){var r=i("onFocus");throw new Error(r)}},onBlur:function(e){if(t.$emit("onBlur",e),o.onBlur){var r=i("onBlur");throw new Error(r)}},customAlert:function(e,r){if(t.$emit("customAlert",e,r),o.customAlert){var n=i("customAlert");throw new Error(n)}},customPaste:function(e,r){if(o.customPaste){var n=i("customPaste");throw new Error(n)}var a;return t.$emit("customPaste",e,r,(function(t){a=t})),a}}),content:JSON.parse(r),mode:this.mode||"default"})}}}}),u=t.extend({name:"Toolbar",render:function(t){return t("div",{ref:"box"})},props:["editor","defaultConfig","mode"],methods:{create:function(t){null!=this.$refs.box&&null!=t&&(o.getToolbar(t)||r({editor:t,selector:this.$refs.box,config:this.defaultConfig||{},mode:this.mode||"default"}))}},watch:{editor:{handler:function(t){null!=t&&this.create(t)},immediate:!0}}});export{a as Editor,u as Toolbar};
+//# sourceMappingURL=index.esm.js.map

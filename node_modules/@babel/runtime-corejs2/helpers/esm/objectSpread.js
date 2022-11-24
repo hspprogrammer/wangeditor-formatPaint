@@ -1,0 +1,19 @@
+import _Object$keys from "@babel/runtime-corejs2/core-js/object/keys";
+import _Object$getOwnPropertySymbols from "@babel/runtime-corejs2/core-js/object/get-own-property-symbols";
+import _Object$getOwnPropertyDescriptor from "@babel/runtime-corejs2/core-js/object/get-own-property-descriptor";
+import defineProperty from "./defineProperty.js";
+export default function _objectSpread(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? Object(arguments[i]) : {};
+    var ownKeys = _Object$keys(source);
+    if (typeof _Object$getOwnPropertySymbols === 'function') {
+      ownKeys.push.apply(ownKeys, _Object$getOwnPropertySymbols(source).filter(function (sym) {
+        return _Object$getOwnPropertyDescriptor(source, sym).enumerable;
+      }));
+    }
+    ownKeys.forEach(function (key) {
+      defineProperty(target, key, source[key]);
+    });
+  }
+  return target;
+}
