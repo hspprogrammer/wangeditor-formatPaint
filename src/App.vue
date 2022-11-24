@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div><a href="https://github.com/hspprogrammer/wangeditor-formatPaint" target="_blank">项目地址，请不要吝啬你的小星星。</a> </div>
     <div style="border: 1px solid #ccc;">
             <Toolbar
                 style="border-bottom: 1px solid #ccc"
