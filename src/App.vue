@@ -7,6 +7,7 @@
                 :editor="editor"
                 :defaultConfig="toolbarConfig"
                 :mode="mode"
+                id="aaaa"
             />
             <Editor
                 style="height: 500px; overflow-y: hidden;"
@@ -23,7 +24,7 @@
 import Vue from 'vue'
 import FormatPaintMenuConf,{withSelect} from "./assets/FormatPaint.js";
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue';
-import { Boot } from '@wangeditor/editor';
+import { Boot, DomEditor } from '@wangeditor/editor';
 Boot.registerMenu(FormatPaintMenuConf)
 Boot.registerPlugin(withSelect)
 export default {
@@ -32,21 +33,29 @@ export default {
     Editor, Toolbar
   },
   data() {
-          return {
-              editor: null,
-              html: '<p style="text-align: left;"><span style="color: rgb(225, 60, 57); background-color: rgb(9, 109, 217); font-size: 19px; font-family: 华文楷体;"><s><u><em><strong>使用说明</strong></em></u></s></span>：首先先将鼠标选中想要复制的文字格式上，再点击格式刷菜单，这时候选中的文字格式已经取到了，接下来选中要格式的文字，松开鼠标左键，就能看到格式好的样子了，继续选中会继续格式化，直到取消格式化按钮的选中状态。</p>',
-              toolbarConfig: { 
-				insertKeys:{
-					index: 5, // 插入的位置，基于当前的 toolbarKeys
-					keys: ['FormatPaintMenuConf']
-				}
-			  },
-              editorConfig: { placeholder: '请输入内容...' },
-              mode: 'default', // or 'simple'
+        return {
+            editor: null,
+            html: '<p style="text-align: left;"><span style="color: rgb(225, 60, 57); background-color: rgb(9, 109, 217); font-size: 19px; font-family: 华文楷体;"><s><u><em><strong>使用说明</strong></em></u></s></span>：首先先将鼠标选中想要复制的文字格式上，再点击格式刷菜单，这时候选中的文字格式已经取到了，接下来选中要格式的文字，松开鼠标左键，就能看到格式好的样子了，继续选中会继续格式化，直到取消格式化按钮的选中状态。</p>',
+            toolbarConfig: { 
+              insertKeys:{
+                index: 5, // 插入的位置，基于当前的 toolbarKeys
+                keys: ['FormatPaintMenuConf']
+              }
+            },
+            editorConfig: { 
+              placeholder: '请输入内容...' ,
+              hoverbarKeys:{
+                text:{
+                    menuKeys: ["headerSelect","insertLink", "bulletedList","|","bold","through","color","bgColor",'FormatPaintMenuConf',"clearStyle"],
+                }
+              }
+              },
+            mode: 'default', // or 'simple'
           }
       },
       methods: {
           onCreated(editor) {
+            console.log(DomEditor.getToolbar(editor))
               this.editor = Object.seal(editor) // 一定要用 Object.seal() ，否则会报错
           },
       },
