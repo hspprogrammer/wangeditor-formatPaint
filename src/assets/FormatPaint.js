@@ -51,7 +51,8 @@ class FormatPaint {
 }
 
 
-export function withSelect(editor) {                            // JS 语法
+export function withSelect(editor) {  
+   const myFormatPaint =  new FormatPaint ;
 
     const { onChange,onBlur,onFocus} = editor // 获取当前 editor API
     const newEditor = editor
